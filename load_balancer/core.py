@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
 
+import os
 import sys
 from server import Server
 from user import User
@@ -14,7 +15,12 @@ def main(input_file_path):
 
     tick = 0
     cluster = Cluster()
+    output_path = "output.txt"
+    if os.path.isfile(output_path):
+        os.remove(output_path)
     while tick < len(new_user_per_tick) or cluster.has_server:
+
+        cluster.remove_unused_server()
 
         # Add new users to servers
         if tick < len(new_user_per_tick):
@@ -35,12 +41,13 @@ def main(input_file_path):
 
             tick += 1
 
-        # Executes tasks and removes unused servers
-        print(cluster.report())
+        # Executes tasks and prints the report
         cluster.execute_server_task()
-        cluster.remove_unused_server()
+        with open(output_path, 'a') as output_file:
+            output_file.write(cluster.report() + '\n')
 
-    print(cluster.running_cost)
+    with open(output_path, 'a') as output_file:
+        output_file.write(str(cluster.running_cost))
 
 
 if __name__ == '__main__':

@@ -16,7 +16,7 @@ class Cluster(object):
     def has_server(self):
         return len(self.server_list) > 0
 
-    def remove_unused_server(self):  # todo avoid iterating twice
+    def remove_unused_server(self):  # todo avoid iterating twice using for in range
         remove_index_list = []
         for server_index, server in enumerate(self.server_list):
             server.remove_finished_user()

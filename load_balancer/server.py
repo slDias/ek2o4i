@@ -34,7 +34,7 @@ class Server(object):
     def remove_finished_user(self):  # todo avoid iterating twice
         remove_index_list = []
         for user_index, user in enumerate(self.user_list):
-            if user.task_ended():
+            if user.task_ended:
                 remove_index_list.append(user_index)
 
         self.user_list = [user for index, user in enumerate(self.user_list) if index not in remove_index_list]

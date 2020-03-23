@@ -9,5 +9,6 @@ class User(object):
     def tick_task(self):
         self.task_tick_count -= 1
 
+    @property
     def task_ended(self):
         return self.task_tick_count == 0
