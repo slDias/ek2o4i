@@ -8,6 +8,10 @@ from cluster import Cluster
 
 
 def main(input_file_path):
+    """
+    Allocate users to servers maintaining the lowest cost possible and writes the result to output.txt
+    :param str input_file_path: The path to a file containing input parameters
+    """
 
     # Read input file
     with open(input_file_path) as input_file:
