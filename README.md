@@ -24,10 +24,10 @@ Clone this repository to your local machine
 git clone https://github.com/slDias/ek2o4i.git
 ```
 
-Open a terminal on the cloned directory and run the `load_balancer/core.py` providing the input file
+Open a terminal on the cloned directory and run the `load_balancer` module providing the input file
 
 ```
-python load_balancer/core.py input.txt
+python load_balancer input.txt
 ```
 
 The proccess will generate an `output.txt` file on the current working directory
