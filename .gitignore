@@ -1,0 +1,6 @@
+*.pyc
+*.log
+.idea/*
+.vscode/*
+__pycache__/*
+input.txt
