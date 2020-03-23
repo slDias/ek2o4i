@@ -2,29 +2,32 @@ import unittest
 from unittest.mock import MagicMock
 
 
-class TestCore(unittest.TestCase):
+class TestServer(unittest.TestCase):
     def test_exists(self):
         from load_balancer.server import Server
 
     def test_add_user(self):
         from load_balancer.server import Server
 
+        mock_user = MagicMock()
         test_server = Server(3)
-        test_server.add_user(None)
-        assert test_server.user_list[0] is None
+        test_server.add_user(mock_user)
+        assert test_server.user_list[0] == mock_user
 
     def test_user_count(self):
         from load_balancer.server import Server
 
+        mock_user = MagicMock()
         test_server = Server(3)
-        test_server.add_user(None)
+        test_server.add_user(mock_user)
         assert test_server.user_count == 1
 
     def test_is_full_positive(self):
         from load_balancer.server import Server
 
+        mock_user = MagicMock()
         test_server = Server(1)
-        test_server.add_user(None)
+        test_server.add_user(mock_user)
         assert test_server.is_full
 
     def test_is_full_negative(self):
@@ -36,8 +39,9 @@ class TestCore(unittest.TestCase):
     def test_has_any_user_positive(self):
         from load_balancer.server import Server
 
+        mock_user = MagicMock()
         test_server = Server(3)
-        test_server.add_user(None)
+        test_server.add_user(mock_user)
         assert test_server.has_any_user is True
 
     def test_has_any_user_negative(self):

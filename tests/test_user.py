@@ -1,7 +1,7 @@
 import unittest
 
 
-class TestCore(unittest.TestCase):
+class TestUser(unittest.TestCase):
     def test_exists(self):
         from load_balancer.user import User
 

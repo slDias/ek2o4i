@@ -2,22 +2,24 @@ import unittest
 from unittest.mock import MagicMock
 
 
-class TestCore(unittest.TestCase):
+class TestCluster(unittest.TestCase):
     def test_exists(self):
         from load_balancer.cluster import Cluster
 
-    def test_add_user(self):
+    def test_add_server(self):
         from load_balancer.cluster import Cluster
 
+        mock_server = MagicMock()
         test_cluster = Cluster()
-        test_cluster.add_server(None)
-        assert None in test_cluster.server_list
+        test_cluster.add_server(mock_server)
+        assert test_cluster.server_list[0] == mock_server
 
     def test_has_server_positive(self):
         from load_balancer.cluster import Cluster
 
+        mock_server = MagicMock()
         test_cluster = Cluster()
-        test_cluster.add_server(None)
+        test_cluster.add_server(mock_server)
         assert test_cluster.has_server
 
     def test_has_server_negative(self):
